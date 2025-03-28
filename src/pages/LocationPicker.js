@@ -128,7 +128,7 @@ const addressId = localStorage.getItem('addressID1');
 useEffect(() => {
   const fetchAddress = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/address/${addressId}`);
+      const response = await fetch(`https://kissan-backend-1.onrender.com/api/address/${addressId}`);
       if (!response.ok) {
         throw new Error('Address not found');
       }
@@ -377,7 +377,7 @@ useEffect(() => {
 const createNewAddress = async (addressData) => {
   const addressId = localStorage.getItem('addressID1');
   try {
-    const response = await axios.post(`http://localhost:3000/api/address/${addressId}`, addressData);
+    const response = await axios.post(`https://kissan-backend-1.onrender.com/api/address/${addressId}`, addressData);
     return response.data; // Returns the newly created address with addressId
   } catch (error) {
     console.error('Error creating address:', error);
@@ -390,7 +390,7 @@ const createNewAddress = async (addressData) => {
 // Update a specific address by addressId
 const updateAddress = async (addressId, addressData) => {
   try {
-    const response = await axios.put(`http://localhost:3000/api/address/${addressId}`, addressData);
+    const response = await axios.put(`https://kissan-backend-1.onrender.com/api/address/${addressId}`, addressData);
     return response.data; // Returns the updated address object
   } catch (error) {
     console.error('Error updating address:', error);
@@ -402,7 +402,7 @@ const updateAddress = async (addressId, addressData) => {
 // Delete a specific address by addressId
 const deleteAddress = async (addressId) => {
   try {
-    const response = await axios.delete(`http://localhost:3000/api/address/${addressId}`);
+    const response = await axios.delete(`https://kissan-backend-1.onrender.com/api/address/${addressId}`);
     return response.data; // Returns a success message
   } catch (error) {
     console.error('Error deleting address:', error);

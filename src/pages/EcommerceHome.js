@@ -147,7 +147,7 @@ const EcommerceHome = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:3000/api/items');
+        const response = await axios.get('https://kissan-backend-1.onrender.com/api/items');
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (error) {
