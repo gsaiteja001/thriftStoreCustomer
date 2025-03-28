@@ -90,7 +90,7 @@ const WishlistPage = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('https://kissan-backend-1.onrender.com/api/items');
+        const response = await axios.get('https://thriftstorebackend.onrender.com/api/items');
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);

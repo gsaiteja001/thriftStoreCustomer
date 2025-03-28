@@ -40,7 +40,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://kissan-backend-1.onrender.com/api/login', { email, password });
+      const response = await axios.post('https://thriftstorebackend.onrender.com/api/login', { email, password });
       console.log('responsee....',response.data);
       const { token ,customer_id, cartId, wishlistId, addressID1,addressID2,addressID3,addressID4 } = response.data;
       console.log('response.data....',response.data);
@@ -90,7 +90,7 @@ const Login = () => {
   };
 
   try {
-    const response = await axios.post('https://kissan-backend-1.onrender.com/api/signup', user);
+    const response = await axios.post('https://thriftstorebackend.onrender.com/api/signup', user);
     if (response.status === 201) {
       alert('Signup successful! Please log in.');
       setShowSignUp(false);

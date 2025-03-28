@@ -90,7 +90,7 @@ const Profile = () => {
   const fetchProfileData = async () => {
     try {
       const customer_id = localStorage.getItem('customerId');
-      const response = await axios.get(`https://kissan-backend-1.onrender.com/api/customer/${customer_id}`, {
+      const response = await axios.get(`https://thriftstorebackend.onrender.com/api/customer/${customer_id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setProfileData(response.data);
