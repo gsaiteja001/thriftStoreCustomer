@@ -56,7 +56,7 @@ export const LoginProvider = ({ children }) => {
         
         try {
           const customer_id = localStorage.getItem('customerId');
-          const response = await axios.get(`https://thriftstorebackend.onrender.com/api/customer/${customer_id}`, {
+          const response = await axios.get(`https://thriftstorebackend-8xii.onrender.com/api/customer/${customer_id}`, {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
@@ -81,7 +81,7 @@ export const LoginProvider = ({ children }) => {
   const fetchCartItems = async () => {
     if (cart_id && isLoggedIn) {
       try {
-        const response = await axios.get(`https://thriftstorebackend.onrender.com/api/cart/${cart_id}/items`, {
+        const response = await axios.get(`https://thriftstorebackend-8xii.onrender.com/api/cart/${cart_id}/items`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -98,7 +98,7 @@ export const LoginProvider = ({ children }) => {
     const fetchWishlistItems = async () => {
       if (wishlist_id && isLoggedIn) {
         try {
-          const response = await axios.get(`https://thriftstorebackend.onrender.com/api/wishlist/${wishlist_id}/items`, {
+          const response = await axios.get(`https://thriftstorebackend-8xii.onrender.com/api/wishlist/${wishlist_id}/items`, {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
@@ -129,7 +129,7 @@ const handleWishlistToggle = async (productId) => {
     const isInWishlist = wishlist.includes(productId);
     if (isInWishlist) {
       // Remove from wishlist
-      await axios.delete(`https://thriftstorebackend.onrender.com/api/wishlist/${wishlist_id}/remove`, {
+      await axios.delete(`https://thriftstorebackend-8xii.onrender.com/api/wishlist/${wishlist_id}/remove`, {
         data: { item_id: productId },
       });
       setWishlist(prev => {
@@ -139,7 +139,7 @@ const handleWishlistToggle = async (productId) => {
       });
     } else {
       // Add to wishlist
-      await axios.post(`https://thriftstorebackend.onrender.com/api/wishlist/${wishlist_id}/add`, {
+      await axios.post(`https://thriftstorebackend-8xii.onrender.com/api/wishlist/${wishlist_id}/add`, {
         item_id: productId,
       });
       setWishlist(prev => {
@@ -162,7 +162,7 @@ const handleWishlistToggle = async (productId) => {
 
     if (existingItem) {
       // Increment quantity by 1
-      await axios.post(`https://thriftstorebackend.onrender.com/api/cart/${cart_id}/addexistingitem`, {
+      await axios.post(`https://thriftstorebackend-8xii.onrender.com/api/cart/${cart_id}/addexistingitem`, {
         item_id: product.item_id,
         quantity: 1,
       });
@@ -177,7 +177,7 @@ const handleWishlistToggle = async (productId) => {
       });
     } else {
       // Add as a new item
-      await axios.post(`https://thriftstorebackend.onrender.com/api/cart/${cart_id}/add`, {
+      await axios.post(`https://thriftstorebackend-8xii.onrender.com/api/cart/${cart_id}/add`, {
         item_id: product.item_id,
         quantity: 1,
       });
@@ -198,7 +198,7 @@ const handleReduceQuantity = async (itemId) => {
     const item = cartItems.find((item) => item.item_id === itemId);
     if (item && item.quantity === 1) {
       // If quantity is 1, remove the item entirely from cart
-      await axios.delete(`https://thriftstorebackend.onrender.com/api/cart/${cart_id}/remove`, {
+      await axios.delete(`https://thriftstorebackend-8xii.onrender.com/api/cart/${cart_id}/remove`, {
         data: { item_id: itemId },
       });
       setCartItems((prevCart) =>
@@ -206,7 +206,7 @@ const handleReduceQuantity = async (itemId) => {
       );
     } else {
       // Otherwise decrement the quantity by 1
-      await axios.post(`https://thriftstorebackend.onrender.com/api/cart/${cart_id}/removeexistingitem`, {
+      await axios.post(`https://thriftstorebackend-8xii.onrender.com/api/cart/${cart_id}/removeexistingitem`, {
         item_id: itemId,
         quantity: -1,
       });

@@ -85,7 +85,7 @@ const MyOrders = () => {
     }
 
     try {
-      const response = await axios.get(`https://thriftstorebackend.onrender.com/api/orders/${customer_id}`);
+      const response = await axios.get(`https://thriftstorebackend-8xii.onrender.com/api/orders/${customer_id}`);
       const groupedOrders = response.data;
 
       // Log the response to verify the structure
@@ -124,7 +124,7 @@ const MyOrders = () => {
     try {
       const details = await Promise.all(
         itemIds.map((id) =>
-          axios.get(`https://thriftstorebackend.onrender.com/api/item/${id}`).then((res) => res.data)
+          axios.get(`https://thriftstorebackend-8xii.onrender.com/api/item/${id}`).then((res) => res.data)
         )
       );
 

@@ -156,7 +156,7 @@ const Checkout = () => {
         const fetchItemDetails = async () => {
             const itemIds = storedCartItems.map(item => item.item_id);
             const details = await Promise.all(
-                itemIds.map(id => axios.get(`https://thriftstorebackend.onrender.com/api/item/${id}`).then(res => res.data))
+                itemIds.map(id => axios.get(`https://thriftstorebackend-8xii.onrender.com/api/item/${id}`).then(res => res.data))
             );
             setItemsDetails(details);
         };
@@ -186,7 +186,7 @@ const Checkout = () => {
         // Make an API request for each item in the cart
         try {
           const orderRequests = orderItems.map(item => {
-            return axios.post('https://thriftstorebackend.onrender.com/api/order', {
+            return axios.post('https://thriftstorebackend-8xii.onrender.com/api/order', {
               customer_id: customer_id, 
               order_date: orderDate,
               order_status: orderStatus,
