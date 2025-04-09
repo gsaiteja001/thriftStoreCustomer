@@ -19,7 +19,7 @@ import AccountInfo from './pages/accountInfo';
 import Wishlist from './pages/wishList';
 import LocationPicker from './pages/LocationPicker';
 import Checkout from './pages/checkOutPage';
-
+import OrderDetails from './pages/OrderDetails';
 import MyOrders from './pages/myOrders';
 
 
@@ -125,6 +125,16 @@ function AppRoutes() {
           <ProtectedRoute>
             <Layout>
               <Orders />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/orderDetails"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <OrderDetails />
             </Layout>
           </ProtectedRoute>
         }

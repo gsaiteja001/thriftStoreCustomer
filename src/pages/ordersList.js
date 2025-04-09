@@ -81,7 +81,7 @@ const PickupList = () => {
       <Header style={{ position: 'fixed', top: '0' }}>
         <Title>Orders List</Title>
       </Header>
-      <OrdersContainer style={{ marginTop: '45px', marginBottom: '40px' }}>
+      <OrdersContainer style={{ marginTop: '15px', marginBottom: '10px' }}>
         {scheduledAndInProgressOrders.map((order, index) => (
           <OrderCard key={index} onClick={() => handleOrderClick(order)}>
             <OrderInfoContainer>

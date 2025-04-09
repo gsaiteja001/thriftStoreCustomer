@@ -378,7 +378,7 @@ const createNewAddress = async (addressData) => {
   const addressId = localStorage.getItem('addressID1');
   try {
     const response = await axios.post(`https://thriftstorebackend-8xii.onrender.com/api/address/${addressId}`, addressData);
-    return response.data; // Returns the newly created address with addressId
+    return response.data; 
   } catch (error) {
     console.error('Error creating address:', error);
     throw error; // Re-throw to handle in the component
@@ -821,19 +821,28 @@ const renderAddressCards = () => (
                   <Input
                     placeholder="Region"
                     value={city}
-                    readOnly
+                    onChange={(e) => {
+                      setRegion(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, region: '' }));
+                    }}
                     style={{ ...styles.input, flex: 1 }}
                   />
                   <Input
                     placeholder="State"
                     value={state}
-                    readOnly
+                    onChange={(e) => {
+                      setState(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, state: '' }));
+                    }}
                     style={{ ...styles.input, flex: 1 }}
                   />
                   <Input
                     placeholder="Country"
                     value={country}
-                    readOnly
+                    onChange={(e) => {
+                      setCountry(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, country: '' }));
+                    }}
                     style={{ ...styles.input, flex: 1 }}
                   />
                 </div>

@@ -90,7 +90,8 @@ const WishlistPage = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('https://thriftstorebackend-8xii.onrender.com/api/items');
+        const response = await axios.get('https://thriftstorebackend-8xii.onrender.com/api/item/items');
+        console.log('allresponse....',response.data);
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -108,6 +109,8 @@ const WishlistPage = () => {
   const filteredProducts = products.filter(product => 
     wishlist.includes(product.item_id)
   );
+
+console.log('filteredProducts.....',filteredProducts);
 
   return (
     <PageContainer>

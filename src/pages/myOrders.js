@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 // Styles for the component
 const styles = {
@@ -75,6 +76,7 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [itemDetails, setItemDetails] = useState({}); // Store item details by item_id
+  const navigate = useNavigate();
 
   // Fetch orders from the backend
   const fetchOrders = async () => {
@@ -173,9 +175,9 @@ const MyOrders = () => {
               <div>
                 <strong>Order ID:</strong> {order[0].order_id}
               </div>
-              <div>
+              {/* <div>
                 <strong>Order Date:</strong> {orderDate}
-              </div>
+              </div> */}
               <div style={styles.orderStatus}>
                 <strong>Status:</strong> {order[0].order_status}
               </div>
@@ -204,10 +206,16 @@ const MyOrders = () => {
             </div>
 
             <div>
-              <button
+            <button
                 style={styles.button}
-                onMouseEnter={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
-                onMouseLeave={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}
+                onMouseEnter={(e) =>
+                  (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)
+                }
+                onMouseLeave={(e) =>
+                  (e.target.style.backgroundColor = styles.button.backgroundColor)
+                }
+                // On click navigate and pass the order details in state
+                onClick={() => navigate('/orderDetails', { state: { order } })}
               >
                 View Order Details
               </button>

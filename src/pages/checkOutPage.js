@@ -192,7 +192,7 @@ const Checkout = () => {
               order_status: orderStatus,
               payment_status: paymentStatus,
               shipping_address: JSON.stringify(shippingAddress),  
-              shipping_id: shippingAddress ? shippingAddress.addressId : null, 
+              shipping_id: null, 
               item_id: item.item_id,
               item_quantity: item.item_quantity,
               item_price: item.item_price,
